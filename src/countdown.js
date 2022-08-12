@@ -1,10 +1,8 @@
 
-function countdownTimeStart(seconds, isPopup) {
+function countdownTimeStart(secondsToConvert, isPopup) {
 
-	var secondstoMs = seconds * 1000;
+	var secondstoMs = secondsToConvert * 1000;
 	var countDownDate = new Date().getTime() + secondstoMs;
-
-	console.log(isPopup);
 	// Update the count down every 1 second
 	var x = setInterval(function () {
 
@@ -24,7 +22,7 @@ function countdownTimeStart(seconds, isPopup) {
 			+ minutes + "m " + seconds + "s ";
 
 		// If the count down is over, write some text 
-		if (distance < 0) {
+		if (distance <0) {
 			console.log("Audio");
 			var audio = document.getElementById("audio");
 			audio.play();
@@ -33,8 +31,9 @@ function countdownTimeStart(seconds, isPopup) {
 				window.close();
 			} else if (!isPopup) {
 				clearInterval(x);
-				popup('test.html', 'TWENTY TWENTY TWENTY');
-				countdownTimeStart(40, false);
+				console.log("not popup");
+				countdownTimeStart(secondsToConvert, false);
+				popup('src/test.html', 'TWENTY TWENTY TWENTY');
 				// document.getElementById("demo").innerHTML = "EXPIRED";
 
 			}
@@ -47,12 +46,5 @@ function popup(mylink, windowname) {
 	var href;
 	if (typeof (mylink) == 'string') href = mylink;
 	else href = mylink.href;
-	console.log(window.hidden);
-	if (window.hidden) {
-		window.open(href); return false;
-
-	}else {
-
 		window.open(href, "_blank"); return false;
-	}
 }
