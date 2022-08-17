@@ -1,15 +1,41 @@
 <!DOCTYPE HTML>
 <html>
+
 <body>
     <audio id="audio">
         <source src="src/eyes.m4a" type="audio/mp4">
     </audio>
+    <style>
+        .container {
+            height: 900px;
+            position: relative;
+            border: 3px solid green;
+        }
 
-<p id="demo"></p>
-<button onclick="countdownTimeStart(20 * 60, false)">Start Timer</button>
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <div class="container">
+        <div class="center">
+            <h1 id="demo" style="text-align: center; font-size: 100px;"></h1>
 
-<script src="src/countdown.js"></script>
+            <button onclick="countdownTimeStart(20 * 60, false)">Start Timer</button>
+            <input id="checkbox" type="checkbox">Sound</checkbox>
+        </div>
+    </div>
+    
+
+
+
+        <script src="src/countdown.js"></script>
 
 
 </body>
+
 </html>
