@@ -24,14 +24,17 @@ function countdownTimeStart(secondsToConvert, isPopup) {
 		// If the count down is over, write some text 
 		if (distance <0) {
 			console.log("Audio");
-			if (document.getElementById("checkbox").checked === true) {
-				var audio = document.getElementById("audio");
-				audio.play();
-			}
+			
 			if (isPopup) {
 				clearInterval(x);
 				window.close();
 			} else if (!isPopup) {
+				
+				if (document.getElementById("checkbox").checked === true) {
+					var audio = document.getElementById("audio");
+					audio.play();
+				}
+
 				clearInterval(x);
 				console.log("not popup");
 				countdownTimeStart(secondsToConvert, false);
